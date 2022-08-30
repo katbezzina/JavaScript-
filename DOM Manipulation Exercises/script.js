@@ -13,4 +13,8 @@ function addBands(arr) {
 
 addBands(bands = "The Smiths", "Radiohead", "Arcade Fire")
 
+//change hello
+
+
+
 //Ecxercise 18
