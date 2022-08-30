@@ -1,20 +1,16 @@
-//Ecxercise 17
+//Ecxercise 17  
 
-function addBands(arr) {
-
+function addBands() {
+    document.getElementById("band-list").innerHTML = ""
     for (var i = 0; i < bands.length; i++) {
-        ul = document.getElementById("band-list");
-        li = document.createElement("li");
-
-        li.appendChild(document.createTextNode(bands[i]))
+        var liBands = document.createElement("li");
+        liBands.innerText = bands[i];
+        console.log('band', liBands)
+        document.getElementById("band-list").appendChild(liBands);
     }
-    return ul.appendChild(li[i])
 }
 
-addBands(bands = "The Smiths", "Radiohead", "Arcade Fire")
-
-//change hello
-
-
+addBands(bands = ["The Smiths", "Radiohead", "Arcade Fire"])
 
 //Ecxercise 18
+
