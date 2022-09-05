@@ -25,7 +25,7 @@
 }
 
 .frontImage {
-    width: 40vw;
+    width: 40%;
     height: auto;
 }
 
@@ -33,7 +33,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin-right: 10vw;
+    margin-right: 6%;
 }
 
 .title {
@@ -44,12 +44,30 @@
 
 .description {
     color: rgb(80, 79, 79);
-    margin-top: -70px
 }
 
 .cursive {
     font-family: cursive;
+}
+
+.red {
+    color: rgb(179, 4, 4);
+}
+
+.yellow {
+    color: rgb(188, 173, 5);
+}
+
+.green {
     color: rgba(3, 179, 3, 0.957);
+}
+
+.purple {
+    color: purple;
+}
+
+.orange {
+    color: rgb(187, 107, 3);
 }
 
 /* FOOTER */
@@ -60,3 +78,5 @@
     text-align: center;
     background-color: rgba(220, 220, 220, 0.259);
 }
+
+/* TABLE */

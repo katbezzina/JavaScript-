@@ -24,21 +24,30 @@ for (var i = 0; i < recipesData.length; i++) {
   var tr = document.createElement("tr");
 
   var td1 = document.createElement("td");
-  td1.innerHTML = recipesData[i].title;
+
+  // HTML script (avoid to be able to use as variables)
+  // td1.innerHTML = `<img src='${recipesData[i].image}'/>`;
+  var image = document.createElement("img");
+  image.src = recipesData[i].image;
+  td1.appendChild(image);
 
   var td2 = document.createElement("td");
-  td2.innerHTML = recipesData[i].image;
+  td2.innerHTML = recipesData[i].title;
 
-  // var usedIng = recipesData["usedIngredients"];
-  // for (var j = 0; j < usedIng.length; j++) {
-  // finalusedIng = usedIng[j].originalName;
-  // }
+  //NESTED OBJECTS FOR LOOP
 
   var td3 = document.createElement("td");
-  td3.innerHTML = recipesData[i].finalusedIng;
+  var usedIng = recipesData[i].usedIngredients;
+  var ingredients = "";
+
+  for (var j = 0; j < usedIng.length; j++) {
+    ingredients += `${usedIng[j].name} <br> `;
+  }
+
+  td3.innerHTML = ingredients;
 
   var td4 = document.createElement("td");
-  td4.innerHTML = recipesData[i].missedIngredients;
+  td4.innerHTML = recipesData[i].missedIngredientCount;
 
   var td5 = document.createElement("td");
   td5.innerHTML = recipesData[i].likes;
