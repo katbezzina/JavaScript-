@@ -2,6 +2,10 @@
     display: none;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 /* NAVIGATION */
 
 .logo { 
@@ -25,7 +29,7 @@
 }
 
 .frontImage {
-    width: 40%;
+    width: 37.5vw;
     height: auto;
 }
 
@@ -40,6 +44,10 @@
     font-family:'Courier New', Courier, monospace;
     font-weight: bolder;
     color: green;
+}
+
+.seemoreButton {
+    width: 150px;
 }
 
 .description {
@@ -80,3 +88,32 @@
 }
 
 /* TABLE */
+
+.recipesTitle {
+    padding: 60px;
+    text-align: center;
+}
+
+.card-title {
+    font-size: larger;
+    padding: 10px;
+}
+
+.fruitTable {
+    width: 90vw;
+    margin-left: 5vw;
+}
+
+.checkboxFilter {
+    padding: 10px;
+}
+
+.checkboxFilter label {
+    margin: 0px 20px 0px 3px;
+}
+
+.filterSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
