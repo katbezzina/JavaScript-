@@ -19,8 +19,8 @@
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Recipes Log</a></li>
         </ul>
         <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search by ingredient..." aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <input class="form-control me-2" type="search" placeholder="Search by food type..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Go!</button>
         </form>
     </nav>
 
@@ -30,42 +30,35 @@
 
     <!-- FILTER SECTION -->
     <div class="filterSection">
-
-    <!-- CHECKBOXES -->
+    <!-- CHECKBOXES smoothie cocktail lassi refresher shake salad panini cake crostata parfait mousse popsicle sorbet  pops ice-cream jam dip-->
     <div class="checkboxFilter form-check">
-        <input type="checkbox" id="smoothie" value="smoothie">
-        <label for="smoothie">  Smoothie</label>
-        <input type="checkbox" id="salad" name="salad" value="salad">
-        <label for="salad"> Salad</label>
-        <input type="checkbox" id="cake" name="cake" value="cake">
-        <label for="cake"> Cake</label>
-        <input type="checkbox" id="popsicle" name="popsicle" value="popsicle">
-        <label for="popsicle"> Popsicle</label>
-        <input type="checkbox" id="jam" name="jam" value="jam">
-        <label for="jam"> Jam</label>
-        <input type="checkbox" id="dip" name="dip" value="dip">
-        <label for="dip"> Dip</label>
-        <input type="checkbox" id="mousse" name="mousse" value="mousse">
-        <label for="mousse"> Mousse</label>
-        <input type="checkbox" id="ice-cream" name="ice-cream" value="ice-cream">
-        <label for="ice-cream"> Ice-cream</label>
-        <input type="checkbox" id="sorbet" name="sorbet" value="sorbet">
-        <label for="sorbet"> Sorbet</label>
-        <input type="checkbox" id="beverages" name="bevarages" value="bevarages">
-        <label for="bevarages"> Other bevarages</label>
+        <input type="checkbox" id="apples" value="apples">
+        <label for="apples">  Apple</label>
+        <input type="checkbox" id="banana" name="banana" value="banana">
+        <label for="banana"> Banana</label>
+        <input type="checkbox" id="blueberries" name="blueberries" value="blueberries">
+        <label for="blueberries"> Blueberry</label>
+        <input type="checkbox" id="kiwi" name="kiwi" value="kiwi">
+        <label for="kiwi"> Kiwi</label>
+        <input type="checkbox" id="oranges" name="oranges" value="oranges">
+        <label for="oranges"> Orange</label>
+        <input type="checkbox" id="lemons" name="lemons" value="lemons">
+        <label for="lemons"> Lemon</label>
+        <input type="checkbox" id="strawberries" name="strawberries" value="strawberries">
+        <label for="strawberries"> Strawberry</label>
     </div>
     
     <!-- DROPDOWN -->
     <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Sort by 
+            View by &#9829;
         </button>
         <ul class="dropdown-menu">
+            <li id="noSorting"><a class="dropdown-item" href="#">all</a></li>
             <li id="mostPopular"><a class="dropdown-item" href="#">most popular</a></li>
             <li id="leastPopular"><a class="dropdown-item" href="#">least popular</a></li>
         </ul>
     </div>
-
     </div>
 
     <!-- TABLE -->
@@ -95,8 +88,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    <script src="../JS/recipesData.js"></script>
-    <script src="../JS/table.js"></script>
-
+    <script src="../JS/ajaxtable.js"></script>
 </body>
 </html>

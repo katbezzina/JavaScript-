@@ -100,20 +100,17 @@ body {
 }
 
 .fruitTable {
-    width: 90vw;
-    margin-left: 5vw;
-}
-
-.checkboxFilter {
-    padding: 10px;
+    width: 95vw;
+    margin-left: 2.5vw;
 }
 
 .checkboxFilter label {
-    margin: 0px 20px 0px 3px;
+    margin: 10px 15px 0px 2px;
 }
 
 .filterSection{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding: 10px;
 }

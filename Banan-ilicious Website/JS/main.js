@@ -1,10 +1,10 @@
 //SEE MORE FUNCTION
 
-var btnText = document.getElementById("seemoreButton");
+const btnText = document.getElementById("seemoreButton");
 
 function seemoreFunction() {
-  var dots = document.getElementById("dots");
-  var moreText = document.getElementById("more");
+  const dots = document.getElementById("dots");
+  const moreText = document.getElementById("more");
 
   if (dots.style.display === "none") {
     dots.style.display = "inline";
