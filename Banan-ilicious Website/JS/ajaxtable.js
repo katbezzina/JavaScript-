@@ -23,10 +23,6 @@
 //   console.log("result", result);
 // }
 
-//TABLE FUNCTION
-// function displayTable() {
-//TABLE SETUP\
-
 let recipes;
 
 const url = "../JS/recipes.json";
@@ -48,6 +44,7 @@ function fetchData() {
 
 const tbody = document.getElementById("tbody");
 
+//TABLE FUNCTION
 function createRecipeData(recipeList) {
   //ClEARING THE BODY
   tbody.innerHTML = "";
@@ -150,8 +147,7 @@ function sortbyLeast() {
 
 leastPopular.addEventListener("click", sortbyLeast);
 
-//SORT BY NO SORTING
-
+//NO SORTING
 const noSorting = document.getElementById("noSorting");
 
 function nosortingFunction() {
@@ -159,3 +155,105 @@ function nosortingFunction() {
 }
 
 noSorting.addEventListener("click", nosortingFunction);
+
+//APPLE CHECKBOX
+
+// const appleCheckbox = document.getElementById("apples");
+
+// function applesFilter() {
+//   const filterRecipes = recipes.filter((appleCheckbox) => {
+//     const appleIng = appleCheckbox.usedIngredients;
+//     let appleIngredient = "";
+
+//     appleIng.forEach((ingredient) => {
+//       appleIngredient = ingredient.name;
+//     });
+
+//     if (appleIngredient.includes("apple")) {
+//       return true;
+//     } else {
+//       return false;
+//     }
+//   });
+
+//   console.log("filterRecipes", filterRecipes);
+//   createRecipeData(filterRecipes);
+// }
+
+// appleCheckbox.addEventListener("click", applesFilter);
+
+//CHECKBOX FILTERING
+
+const filterIng = () => {
+  console.log("filtering");
+  const checkBoxes = document.querySelectorAll("input[type=checkbox]:checked");
+  console.log(checkBoxes[0].value)
+
+  checkBoxes.forEach((oneCheckbox) => {
+    
+
+  }
+
+  // loop through checkboxes to get value
+};
+
+const array = [{ ing: [1, 3, 4] }, { ing: [2, 4, 6, 7] }];
+
+const checkArray = [2, 4, 7];
+
+const result = array.filter((rec) => {
+  return checkArray.every((oneCheck) => rec.ing.includes(oneCheck));
+});
+console.log(result);
+
+
+
+const allCheckboxes = document.querySelectorAll(".checkbox");
+console.log(allCheckboxes);
+allCheckboxes.forEach((oneCheckbox) =>
+  oneCheckbox.addEventListener("click", filterIng)
+);
+
+
+
+// const checkboxes = document.querySelectorAll(".checkbox");
+// var checkboxValues = [];
+
+// function checkboxFilter() {
+//   const checkboxfilteredRecipes = recipes.filter((filteredRecipe) => {
+//     if (filteredRecipe.usedIngredients.name == value) {
+//       return true;
+//     } else {
+//       return false;
+//     }
+//   });
+//   console.log("checkboxfilteredRecipes", checkboxfilteredRecipes);
+// }
+
+// checkboxes.addEventListener("change", checkboxFilter);
+
+
+
+
+// const even = (element) => {
+//   console.log("element", element);
+//   return element.ing.filter((oneIng) => {
+//     const bool = [];
+
+//     checkArray.forEach((oneCheck) => bool.push(oneCheck === oneIng));
+//     console.log("bool", bool);
+//   });
+// };
+
+// console.log(
+//   array.filter((oneRec) => {
+//     const bool = [];
+//     oneRec.ing.filter((oneIng) => {
+//       checkArray.forEach((oneCheck) => bool.push(oneCheck === oneIng));
+//     });
+//     console.log("bool", bool);
+//   })
+// );
+
+
+
