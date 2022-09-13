@@ -24,7 +24,7 @@
         </form>
     </nav>
 
-    <div class="fruitTable">
+    <div class="fruitTableandFilters">
     <!-- HEADER -->
     <h1 class="title recipesTitle"><span class="cursive green">Fruity</span>licious Recipes</h1>
 
@@ -32,19 +32,19 @@
     <div class="filterSection">
     <!-- CHECKBOXES smoothie cocktail lassi refresher shake salad panini cake crostata parfait mousse popsicle sorbet  pops ice-cream jam dip-->
     <div class="checkboxFilter form-check">
-        <input type="checkbox" id="apples" value="apples">
+        <input type="checkbox" class="checkbox" onclick="filterByIngredient()" id="apples" value="apples">
         <label for="apples">  Apple</label>
-        <input type="checkbox" id="banana" name="banana" value="banana">
+        <input type="checkbox" class="checkbox" onclick="filterByIngredient()" id="banana" value="banana">
         <label for="banana"> Banana</label>
-        <input type="checkbox" id="blueberries" name="blueberries" value="blueberries">
+        <input type="checkbox" class="checkbox" onclick="filterByIngredient()" id="blueberries" value="blueberries">
         <label for="blueberries"> Blueberry</label>
-        <input type="checkbox" id="kiwi" name="kiwi" value="kiwi">
+        <input type="checkbox" class="checkbox" onclick="filterByIngredient()" id="kiwi" value="kiwi">
         <label for="kiwi"> Kiwi</label>
-        <input type="checkbox" id="oranges" name="oranges" value="oranges">
-        <label for="oranges"> Orange</label>
-        <input type="checkbox" id="lemons" name="lemons" value="lemons">
+        <input type="checkbox" class="checkbox" onclick="filterByIngredient()" id="lemons" value="lemon">
         <label for="lemons"> Lemon</label>
-        <input type="checkbox" id="strawberries" name="strawberries" value="strawberries">
+        <input type="checkbox" class="checkbox" onclick="filterByIngredient()" id="oranges" value="orange">
+        <label for="oranges"> Orange</label>
+        <input type="checkbox" class="checkbox" onclick="filterByIngredient()" id="strawberries" value="strawberries">
         <label for="strawberries"> Strawberry</label>
     </div>
     
@@ -64,16 +64,10 @@
     <!-- TABLE -->
     <table id="fruityTable">
             <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th data-type="number"></th>
             </tr>
 
 
-            <tbody id="tbody" class="card-body row row-cols-md-4 g-2">
+            <tbody id="tbody" class="card-body row row-cols-1 row-cols-md-4 g-2">
                 <!-- <tr>
                     <td>1</td>
                     <td>fact</td>

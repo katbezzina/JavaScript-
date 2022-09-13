@@ -99,9 +99,9 @@ body {
     padding: 10px;
 }
 
-.fruitTable {
-    width: 95vw;
-    margin-left: 2.5vw;
+.fruitTableandFilters {
+    width: 80vw;
+    margin-left: 10vw;
 }
 
 .checkboxFilter label {
