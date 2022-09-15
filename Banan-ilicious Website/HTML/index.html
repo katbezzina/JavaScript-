@@ -14,38 +14,39 @@
 
 <!-- NAVIGATION -->
 <nav class="navbar bg-light">
-    <image src="../logo.png" class="logo"></image>
-    <ul class="nav nav-pills nav-fill">
+    <div class="logodiv">
+        <image src="../logo.png" class="logo"></image>
+        <h1 class="title logotitle"><span class="cursive green">Fruity</span>licious</h1>
+    </div>
+    <ul class="nav nav-pills nav-fill navigationitems">
         <li class="nav-item"><a class="nav-link active" aria-current="page"  href=#>Home</a></li>
         <li class="nav-item"><a class="nav-link" href="../HTML/recipes.html">Recipes Log</a></li>
     </ul>
-    <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search by food type..." aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Go!</button>
-    </form>
-</nav>
-    <!-- HOME SECTION -->
-    
-    <section class="homeSection">
-        <div class="leftContainer">
-            <h1 class="display-1 title"><span class="cursive green">Fruity</span>licious</h1>
-            <p class="description">Tired of eating plain fruit everyday? <br><br>Here you can find creative breakfast, dessert or snack recipes using some of the most nutricious fresh fruit: <span class="green"> apples</span>, <span class="red">strawberries</span>, <span class="yellow">banana</span>, <span class="purple">blueberries</span>, <span class="green">kiwi</span>, <span class="orange">oranges</span> and/or <span class="yellow">lemons</span> to make sure that you will always find something to do with those extra oranges sitting on your kitchen counter for too long! 
-                <span id="dots">...</span>
-                <span id="more"> <br><br>This is also a great way to introduce fruit to children or adults who are not big fans of eating fruit. The vitamins, minerals andantioxidants most fruit contain are vital so such recipes are definitely worth a try.</span></p>
-            <button id="seemoreButton" class="btn btn-primary seemoreButton">See more...</button>
-        </div>
-        <image src="../frontpagepicture.jpg" class="frontImage img-fluid rounded"></image>
-     </section>
-    
-    <!-- FOOTER -->
-    <footer class="footer">
-        <p>&#169; 2022 KBCAB Studios. All Rights Reserved.</p>
-    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    </nav>
+
+<!-- HOME SECTION -->
+    
+<section class="homeSection">
+    <div class="leftContainer">
+        <h1 class="display-1 title"><span class="cursive green">Fruity</span>licious</h1>
+        <p class="description">Tired of eating plain fruit everyday? <br><br>Here you can find creative breakfast, dessert or snack recipes using some of the most nutricious fresh fruit: <span class="green"> apples</span>, <span class="red">strawberries</span>, <span class="yellow">banana</span>, <span class="purple">blueberries</span>, <span class="green">kiwi</span>, <span class="orange">oranges</span> and/or <span class="yellow">lemons</span> to make sure that you will always find something to do with those extra oranges sitting on your kitchen counter for too long! 
+            <span id="dots">...</span>
+            <span id="more"> <br><br>This is also a great way to introduce fruit to children or adults who are not big fans of eating fruit. The vitamins, minerals andantioxidants most fruit contain are vital so such recipes are definitely worth a try.</span></p>
+        <button id="seemoreButton" class="btn btn-primary seemoreButton">See more...</button>
+    </div>
+    <image src="../frontpagepicture.jpg" class="frontImage img-fluid rounded"></image>
+     
+</section>
+    
+<!-- FOOTER -->
+<footer class="footer"><p>&#169; 2022 KBCAB Studios. All Rights Reserved.</p></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
-    <script src = "../JS/main.js"></script>
-    <script src="../JS/ajaxtable.js"></script>
+<script src = "../JS/seemorefunction.js"></script>
+<script src="../JS/main.js"></script>
+ 
 </body>
 </html>

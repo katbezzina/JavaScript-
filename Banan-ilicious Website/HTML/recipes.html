@@ -13,15 +13,15 @@
 
     <!-- NAVIGATION -->
     <nav class="navbar bg-light">
-        <image src="../logo.png" class="logo"></image>
-        <ul class="nav nav-pills nav-fill">
+        <div class="logodiv">
+            <image src="../logo.png" class="logo"></image>
+            <h1 class="title logotitle"><span class="cursive green">Fruity</span>licious</h1>
+        </div>
+        <ul class="nav nav-pills nav-fill navigationitems">
             <li class="nav-item"><a class="nav-link" href="../HTML/index.html">Home</a></li>
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Recipes Log</a></li>
         </ul>
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search by food type..." aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Go!</button>
-        </form>
+
     </nav>
 
     <div class="fruitTableandFilters">
@@ -49,16 +49,19 @@
     </div>
     
     <!-- DROPDOWN -->
-    <div class="dropdown">
-        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            View by &#9829;
-        </button>
-        <ul class="dropdown-menu">
-            <li id="noSorting"><a class="dropdown-item" href="#">all</a></li>
-            <li id="mostPopular"><a class="dropdown-item" href="#">most popular</a></li>
-            <li id="leastPopular"><a class="dropdown-item" href="#">least popular</a></li>
-        </ul>
-    </div>
+        <div class="dropdown">
+            <button class="btn btn-sm btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Recipe type</button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item green" id="noFilter" href="#">All Recipes</a></li>
+                <li><a class="dropdown-item" id="beverages" href="#">Beverages</a></li>
+                <li><a class="dropdown-item" id="cakesandbakes" href="#">Cakes & Bakes</a></li>
+                <li><a class="dropdown-item" id="frozendesserts" href="#">Frozen Desserts</a></li>
+                <li><a class="dropdown-item" id="jamesdips" href="#">Jams & Dips</a></li>
+                <li><a class="dropdown-item" id="lightsnacks" href="#">Light Snacks</a></li>
+                <li><a class="dropdown-item" id="mousseparfait" href="#">Mousse & Parfaits</a></li>
+            </ul>
+        </div>
     </div>
 
     <!-- TABLE -->
@@ -82,6 +85,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    <script src="../JS/ajaxtable.js"></script>
+    <script src="../JS/main.js"></script>
 </body>
 </html>
