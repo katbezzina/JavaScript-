@@ -32,6 +32,11 @@
 //   oneCheckbox.addEventListener("click", filterIng)
 // );
 
+// checkBoxes.forEach((oneCheckbox) => {
+//   oneCheckbox.checked = false;
+//   oneCheckbox.addEventListener("click", () => filterTable());
+// });
+
 //CHECKBOX FILTERING
 
 // const filterIng = () => {
@@ -45,6 +50,8 @@
 //     return checkbox.value;
 //   });
 //   console.log(checkboxValues);
+
+//EQUATING INGREDIENTS and CHECKBOX VALUES ATTEMPT
 
 // for (i = 0; i < recipes.length; i++) {
 //   const recipeUsedIngredient = recipes[i].usedIngredients;
@@ -70,11 +77,6 @@
 // createRecipeData(filteredRecipes);
 // }
 
-// checkBoxes.forEach((oneCheckbox) => {
-//   oneCheckbox.checked = false;
-//   oneCheckbox.addEventListener("click", () => filterTable());
-// });
-
 //LOOP THROUGH CHECKBOXES
 
 // function getCheckboxValues() {
@@ -86,8 +88,7 @@
 // }
 
 //FILTERING THE CARDS
-
-//LUCAS
+//
 //   const filteredRecipes = recipes.filter((recipe) => {
 //     let isIngredient = false;
 //     recipe.usedIngredients.forEach((ingredient) => {

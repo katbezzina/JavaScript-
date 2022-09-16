@@ -20,6 +20,23 @@ body {
     align-items: center;
 }
 
+.navigationitems{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.logodiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logotitle{
+    font-size: large;
+}
+
 /* HOME SECTION */
 
 .homeSection {
@@ -38,6 +55,7 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     margin-right: 6%;
+    margin-left: 3%;
 }
 
 .title {
@@ -100,8 +118,8 @@ body {
 }
 
 .fruitTableandFilters {
-    width: 80vw;
-    margin-left: 10vw;
+    width: 92vw;
+    margin-left: 4vw;
 }
 
 .checkboxFilter label {
@@ -114,3 +132,10 @@ body {
     justify-content: space-between;
     padding: 10px;
 }
+
+.cardcolor{
+    background-color: rgba(4, 149, 50, 0.618);
+    color: rgba(248, 248, 248, 0.899);
+    width: 23vw;
+}
+

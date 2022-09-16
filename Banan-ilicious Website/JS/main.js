@@ -13,6 +13,8 @@
 //   })
 //   .catch((error) => console.log("error", error));
 
+// //FETCH FROM LOCAL API
+
 // let recipes;
 
 // const url = "../JS/recipes.json";
@@ -37,11 +39,9 @@
 let recipes;
 
 const getDataAsync = async () => {
-  const response = await fetch(
-    "https://api.spoonacular.com/recipes/findByIngredients?apiKey=43a2171f92be4f80b6cdd64564a0b167&ingredients=apples,strawberry,banana,blueberries,kiwi,oranges,grapefruit,lemon&number=40&ranking=2"
-  );
+  const response = await fetch("../JS/recipes.json");
   const data = await response.json();
-  createRecipeData(data);
+  // createRecipeData(data);
   return data;
 };
 
@@ -120,58 +120,50 @@ function createRecipeData(recipeList) {
     tbody.appendChild(tr);
   });
 }
-//END OF TABLE CREATION
 
 //CONTROLLER FUNCTION
 //MAIN FUNCTION FOR ASYNC AWAIT
 async function controller() {
-  //GETTING THE DATA ASYNC
+  ////GETTING THE DATA ASYNC
   const data = await getDataAsync();
   console.log("data", data);
-
-  // build table with all data
+  ////GETTING THE TABLE
   createRecipeData(data);
-
-  //create filter functions
+  ////GETTING EVENT LISTENERS
   setEventListeners(data);
-  // set event listeners
 }
 controller();
 
-// add event listeners
-const setEventListeners = (recipes) => {
-  document
-    .querySelectorAll("input[type='checkbox']:checked")
-    .addEventListener("change", (event) => {
-      combineFilters(recipes);
-    });
-  document.getElementById("noFilter").addEventListener("change", (event) => {
-    combineFilters(recipes);
-  });
-  document.getElementById("beverages").addEventListener("change", (event) => {
-    combineFilters(recipes);
-  });
-  document.getElementById("lightsnacks").addEventListener("change", (event) => {
-    combineFilters(recipes);
-  });
-  document
-    .getElementById("cakesandbakes")
-    .addEventListener("change", (event) => {
-      combineFilters(recipes);
-    });
-  document
-    .getElementById("frozendesserts")
-    .addEventListener("change", (event) => {
-      combineFilters(recipes);
-    });
-  document.getElementById("jamesdips").addEventListener("change", (event) => {
-    combineFilters(recipes);
-  });
-};
+// //ADD EVENT LISTENERS
+function setEventListeners(recipes) {
+  const noFilter = document.getElementById("noFilter");
+  noFilter.addEventListener("click", () => noFilterFunction(recipes));
+  const beverages = document.getElementById("beverages");
+  beverages.addEventListener("click", () => beveragesSearch(recipes));
+  const cakesandbakes = document.getElementById("cakesandbakes");
+  cakesandbakes.addEventListener("click", () => cakesandbakesSearch(recipes));
+  const lightsnacks = document.getElementById("lightsnacks");
+  lightsnacks.addEventListener("click", () => lightsnacksSearch(recipes));
+  const frozendesserts = document.getElementById("frozendesserts");
+  frozendesserts.addEventListener("click", () => frozendessertsSearch(recipes));
+  const mousseparfait = document.getElementById("mousseparfait");
+  mousseparfait.addEventListener("click", () => mousseparfaitSearch(recipes));
+  const jamesdips = document.getElementById("jamesdips");
+  jamesdips.addEventListener("click", () => jamesdipsSearch(recipes));
 
-//CHECKBOX FILTERING
+  const checkboxes = Array.from(
+    document.querySelectorAll("input[type='checkbox']")
+  );
+  console.log("checkboxes", checkboxes);
+  checkboxes.forEach((checkbox) =>
+    checkbox.addEventListener("change", () => filterByIngredient(recipes))
+  );
+}
+
+//CHECKBOX FILTERING (ON CLICK EVENT IN HTML)
 //GETTING TO THE CHECKBOX VALUE USING THE MAP FUNCTION and ARRAY (to get an array from the node list)
-function filterByIngredient() {
+function filterByIngredient(recipes) {
+  console.log("recipes", recipes);
   let myCheckedBoxes = Array.from(
     document.querySelectorAll("input[type='checkbox']:checked")
   ).map((checked) => checked.value);
@@ -182,25 +174,33 @@ function filterByIngredient() {
     let intersection = recipe.usedIngredients.filter((ingr) =>
       myCheckedBoxes.includes(ingr.name)
     );
-    console.log("intersection", intersection);
+    // console.log("intersection", intersection);
     return intersection.length == myCheckedBoxes.length;
   });
+  console.log("filteredRecipes", filteredRecipes);
   createRecipeData(filteredRecipes);
 }
 
 //SEARCH DROPDOWN
+// function genericFoodTypeFilter (recipes, types) {}
+// const recipeType = [
+//   "noFilter",
+//   "beverages",
+//   "cakesandbakes",
+//   "frozendesserts",
+//   "mousseparfait",
+//   "jamesdips",
+// ];
 
 //NO FILTERING
-const noFilter = document.getElementById("noFilter");
 
-function noFilterFunction() {
+function noFilterFunction(recipes) {
   createRecipeData(recipes);
 }
 
 //BEVERAGES
-const beverages = document.getElementById("beverages");
 
-function beveragesSearch() {
+function beveragesSearch(recipes) {
   const filteredRecipes = recipes.filter((recipe) => {
     if (
       recipe.title.includes("Smoothie") ||
@@ -218,9 +218,8 @@ function beveragesSearch() {
 }
 
 //LIGHTSNACKS
-const lightsnacks = document.getElementById("lightsnacks");
 
-function lightsnacksSearch() {
+function lightsnacksSearch(recipes) {
   const filteredRecipes = recipes.filter((recipe) => {
     if (
       recipe.title.includes("Salad") ||
@@ -238,9 +237,8 @@ function lightsnacksSearch() {
 }
 
 //CAKES&BAKES
-const cakesandbakes = document.getElementById("cakesandbakes");
 
-function cakesandbakesSearch() {
+function cakesandbakesSearch(recipes) {
   const filteredRecipes = recipes.filter((recipe) => {
     if (
       recipe.title.includes("Cake") ||
@@ -256,9 +254,8 @@ function cakesandbakesSearch() {
 }
 
 //FROZEN DESSERTS
-const frozendesserts = document.getElementById("frozendesserts");
 
-function frozendessertsSearch() {
+function frozendessertsSearch(recipes) {
   const filteredRecipes = recipes.filter((recipe) => {
     if (
       recipe.title.includes("Ice") ||
@@ -274,9 +271,8 @@ function frozendessertsSearch() {
 }
 
 //MOUSSE PARFAIT
-const mousseparfait = document.getElementById("mousseparfait");
 
-function mousseparfaitSearch() {
+function mousseparfaitSearch(recipes) {
   const filteredRecipes = recipes.filter((recipe) => {
     if (recipe.title.includes("Mousse") || recipe.title.includes("Parfait")) {
       return true;
@@ -287,12 +283,9 @@ function mousseparfaitSearch() {
   createRecipeData(filteredRecipes);
 }
 
-mousseparfait.addEventListener("click", mousseparfaitSearch);
-
 //JAMS DIPS
-const jamesdips = document.getElementById("jamesdips");
 
-function jamesdipsSearch() {
+function jamesdipsSearch(recipes) {
   const filteredRecipes = recipes.filter((recipe) => {
     if (recipe.title.includes("Jam") || recipe.title.includes("Dip")) {
       return true;
@@ -303,36 +296,36 @@ function jamesdipsSearch() {
   createRecipeData(filteredRecipes);
 }
 
-//COMBINING FILTERS
+// //COMBINING FILTERS
 
-const combineFilters = (recipes) => {
-  const checkboxValue = document.querySelectorAll(
-    "input[type='checkbox']:checked"
-  );
-  const intersection = recipes.usedIngredients;
-  const jamesdips = document.getElementById("jamesdips");
-  const mousseparfait = document.getElementById("mousseparfait");
-  const frozendesserts = document.getElementById("frozendesserts");
-  const cakesandbakes = document.getElementById("cakesandbakes");
-  const lightsnacks = document.getElementById("lightsnacks");
-  const beverages = document.getElementById("beverages");
-  const noFilter = document.getElementById("noFilter");
+// const combineFilters = (recipes) => {
+//   const checkboxes = Array.from(
+//     document.querySelectorAll("input[type='checkbox']")
+//   );
+//   const intersection = recipes.usedIngredients;
+//   const jamesdips = document.getElementById("jamesdips");
+//   const mousseparfait = document.getElementById("mousseparfait");
+//   const frozendesserts = document.getElementById("frozendesserts");
+//   const cakesandbakes = document.getElementById("cakesandbakes");
+//   const lightsnacks = document.getElementById("lightsnacks");
+//   const beverages = document.getElementById("beverages");
+//   const noFilter = document.getElementById("noFilter");
 
-  const filteredRecipes = recipes.filter((recipe) => {
-    return (
-      (jamesdips ||
-        mousseparfait ||
-        frozendesserts ||
-        cakesandbakes ||
-        lightsnacks ||
-        beverages ||
-        noFilter) &&
-      intersection.length == checkboxValue.length
-    );
-  });
-  console.log("filteredRecipes", filteredRecipes);
-  createRecipeData(filteredRecipes);
-};
+//   const filteredRecipes = recipes.filter((recipe) => {
+//     return (
+//       (jamesdips ||
+//         mousseparfait ||
+//         frozendesserts ||
+//         cakesandbakes ||
+//         lightsnacks ||
+//         beverages ||
+//         noFilter) &&
+//       intersection.length == checkboxes.length
+//     );
+//   });
+//   console.log("filteredRecipes", filteredRecipes);
+//   createRecipeData(filteredRecipes);
+// };
 
 //SORT BY MOST FUNCTION
 // const mostPopular = document.getElementById("mostPopular");

@@ -32,27 +32,27 @@
     <div class="filterSection">
     <!-- CHECKBOXES smoothie cocktail lassi refresher shake salad panini cake crostata parfait mousse popsicle sorbet  pops ice-cream jam dip-->
     <div class="checkboxFilter form-check">
-        <input type="checkbox" class="checkbox" onclick="filterByIngredient()" id="apples" value="apples">
+        <input type="checkbox" class="checkbox" id="apples" value="apples">
         <label for="apples">  Apple</label>
-        <input type="checkbox" class="checkbox" onclick="filterByIngredient()" id="banana" value="banana">
+        <input type="checkbox" class="checkbox" id="banana" value="banana">
         <label for="banana"> Banana</label>
-        <input type="checkbox" class="checkbox" onclick="filterByIngredient()" id="blueberries" value="blueberries">
+        <input type="checkbox" class="checkbox" id="blueberries" value="blueberries">
         <label for="blueberries"> Blueberry</label>
-        <input type="checkbox" class="checkbox" onclick="filterByIngredient()" id="kiwi" value="kiwi">
+        <input type="checkbox" class="checkbox" id="kiwi" value="kiwi">
         <label for="kiwi"> Kiwi</label>
-        <input type="checkbox" class="checkbox" onclick="filterByIngredient()" id="lemons" value="lemon">
+        <input type="checkbox" class="checkbox" id="lemons" value="lemon">
         <label for="lemons"> Lemon</label>
-        <input type="checkbox" class="checkbox" onclick="filterByIngredient()" id="oranges" value="orange">
+        <input type="checkbox" class="checkbox" id="oranges" value="orange">
         <label for="oranges"> Orange</label>
-        <input type="checkbox" class="checkbox" onclick="filterByIngredient()" id="strawberries" value="strawberries">
+        <input type="checkbox" class="checkbox" id="strawberries" value="strawberries">
         <label for="strawberries"> Strawberry</label>
     </div>
     
     <!-- DROPDOWN -->
         <div class="dropdown">
-            <button class="btn btn-sm btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-sm btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="idbtn">
                 Recipe type</button>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" id="element">
                 <li><a class="dropdown-item green" id="noFilter" href="#">All Recipes</a></li>
                 <li><a class="dropdown-item" id="beverages" href="#">Beverages</a></li>
                 <li><a class="dropdown-item" id="cakesandbakes" href="#">Cakes & Bakes</a></li>
