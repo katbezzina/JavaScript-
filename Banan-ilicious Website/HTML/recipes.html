@@ -12,16 +12,14 @@
 <body>
 
     <!-- NAVIGATION -->
-    <nav class="navbar bg-light">
-        <div class="logodiv">
-            <image src="../logo.png" class="logo"></image>
-            <h1 class="title logotitle"><span class="cursive green">Fruity</span>licious</h1>
-        </div>
-        <ul class="nav nav-pills nav-fill navigationitems">
-            <li class="nav-item"><a class="nav-link" href="../HTML/index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Recipes Log</a></li>
-        </ul>
 
+    <nav class="navbar bg-light">
+        <image src="../logo.png" class="logo"></image>
+        <ul class="nav navigationitems">
+            <li class="nav-item"><a class="navItem nav-link" href="../HTML/index.html">Home</a></li>
+            <li class="nav-item"><a class="navItem nav-link activeNav" aria-current="page" href="#">Recipes Log</a></li>
+        </ul>
+        <h1 class="title logotitle"><span class="cursive green">Fruity</span>licious</h1>
     </nav>
 
     <div class="fruitTableandFilters">
@@ -50,17 +48,25 @@
     
     <!-- DROPDOWN -->
         <div class="dropdown">
-            <button class="btn btn-sm btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="idbtn">
-                Recipe type</button>
-            <ul class="dropdown-menu" id="element">
-                <li><a class="dropdown-item green" id="noFilter" href="#">All Recipes</a></li>
-                <li><a class="dropdown-item" id="beverages" href="#">Beverages</a></li>
-                <li><a class="dropdown-item" id="cakesandbakes" href="#">Cakes & Bakes</a></li>
-                <li><a class="dropdown-item" id="frozendesserts" href="#">Frozen Desserts</a></li>
-                <li><a class="dropdown-item" id="jamesdips" href="#">Jams & Dips</a></li>
-                <li><a class="dropdown-item" id="lightsnacks" href="#">Light Snacks</a></li>
-                <li><a class="dropdown-item" id="mousseparfait" href="#">Mousse & Parfaits</a></li>
-            </ul>
+            <label class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" for="recipeType">
+                Recipe type</label>
+            <select class="dropdown-menu" name="recipeType" id="recipeType">
+                <option value="">All Recipes</option>
+                <option value="Baked">Bake</option>
+                <option value="Cake">Cake</option>
+                <option value="Cocktail">Cocktail</option>
+                <option value="Dip">Dip</option>
+                <option value="Ice">Ice-cream</option>
+                <option value="Jam">Jam</option>
+                <option value="Lassi">Lassi</option>
+                <option value="Mousse">Mousse</option>
+                <option value="Parfait">Parfait</option>
+                <option value="Pop">Popsicle</option>
+                <option value="Refresher">Refresher</option>
+                <option value="Salad">Salad</option>
+                <option value="Smoothie">Smoothie</option>
+                <option value="Sorbet">Sorbet</option>
+            </select>
         </div>
     </div>
 

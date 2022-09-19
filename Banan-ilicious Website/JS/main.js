@@ -49,7 +49,7 @@ const getDataAsync = async () => {
 
 const tbody = document.getElementById("tbody");
 
-//TABLE CREATION FUNCTION
+//HTML TABLE CREATION FUNCTION
 function createRecipeData(recipeList) {
   //ClEARING THE BODY
   tbody.innerHTML = "";
@@ -136,34 +136,41 @@ controller();
 
 // //ADD EVENT LISTENERS
 function setEventListeners(recipes) {
-  const noFilter = document.getElementById("noFilter");
-  noFilter.addEventListener("click", () => noFilterFunction(recipes));
-  const beverages = document.getElementById("beverages");
-  beverages.addEventListener("click", () => beveragesSearch(recipes));
-  const cakesandbakes = document.getElementById("cakesandbakes");
-  cakesandbakes.addEventListener("click", () => cakesandbakesSearch(recipes));
-  const lightsnacks = document.getElementById("lightsnacks");
-  lightsnacks.addEventListener("click", () => lightsnacksSearch(recipes));
-  const frozendesserts = document.getElementById("frozendesserts");
-  frozendesserts.addEventListener("click", () => frozendessertsSearch(recipes));
-  const mousseparfait = document.getElementById("mousseparfait");
-  mousseparfait.addEventListener("click", () => mousseparfaitSearch(recipes));
-  const jamesdips = document.getElementById("jamesdips");
-  jamesdips.addEventListener("click", () => jamesdipsSearch(recipes));
+  ////MANUAL ADD EVENT LISTENERS
+  // const noFilter = document.getElementById("allRecipes");
+  // noFilter.addEventListener("click", () => noFilterFunction(recipes));
+  // const beverages = document.getElementById("beverages");
+  // beverages.addEventListener("click", () => beveragesSearch(recipes));
+  // const cakesandbakes = document.getElementById("cakesandbakes");
+  // cakesandbakes.addEventListener("click", () => cakesandbakesSearch(recipes));
+  // const lightsnacks = document.getElementById("lightsnacks");
+  // lightsnacks.addEventListener("click", () => lightsnacksSearch(recipes));
+  // const frozendesserts = document.getElementById("frozendesserts");
+  // frozendesserts.addEventListener("click", () => frozendessertsSearch(recipes));
+  // const mousseparfait = document.getElementById("mousseparfait");
+  // mousseparfait.addEventListener("click", () => mousseparfaitSearch(recipes));
+  // const jamesdips = document.getElementById("jamesdips");
+  // jamesdips.addEventListener("click", () => jamesdipsSearch(recipes));
 
+  //DROPDOWN EVENT LISTENER
+  document
+    .querySelector("#recipeType")
+    .addEventListener("change", () => combineFilters(recipes));
+
+  //CHECKBOXES EVENT LISTENER
   const checkboxes = Array.from(
     document.querySelectorAll("input[type='checkbox']")
   );
   console.log("checkboxes", checkboxes);
   checkboxes.forEach((checkbox) =>
-    checkbox.addEventListener("change", () => filterByIngredient(recipes))
+    checkbox.addEventListener("click", () => combineFilters(recipes))
   );
 }
 
 //CHECKBOX FILTERING (ON CLICK EVENT IN HTML)
 //GETTING TO THE CHECKBOX VALUE USING THE MAP FUNCTION and ARRAY (to get an array from the node list)
 function filterByIngredient(recipes) {
-  console.log("recipes", recipes);
+  // console.log("recipes", recipes);
   let myCheckedBoxes = Array.from(
     document.querySelectorAll("input[type='checkbox']:checked")
   ).map((checked) => checked.value);
@@ -175,134 +182,148 @@ function filterByIngredient(recipes) {
       myCheckedBoxes.includes(ingr.name)
     );
     // console.log("intersection", intersection);
-    return intersection.length == myCheckedBoxes.length;
+    return intersection.length === myCheckedBoxes.length;
   });
   console.log("filteredRecipes", filteredRecipes);
   createRecipeData(filteredRecipes);
 }
 
-//SEARCH DROPDOWN
-// function genericFoodTypeFilter (recipes, types) {}
-// const recipeType = [
-//   "noFilter",
-//   "beverages",
-//   "cakesandbakes",
-//   "frozendesserts",
-//   "mousseparfait",
-//   "jamesdips",
-// ];
+//AUTOMATED DROPDOWN
 
-//NO FILTERING
+function filterByDropdown(recipes) {
+  const dropdownValue = document.querySelector("#recipeType").value;
+  console.log("dropdownValue", dropdownValue);
 
-function noFilterFunction(recipes) {
-  createRecipeData(recipes);
-}
-
-//BEVERAGES
-
-function beveragesSearch(recipes) {
-  const filteredRecipes = recipes.filter((recipe) => {
-    if (
-      recipe.title.includes("Smoothie") ||
-      recipe.title.includes("Cocktail") ||
-      recipe.title.includes("Refresher") ||
-      recipe.title.includes("Shake") ||
-      recipe.title.includes("Lassi")
-    ) {
-      return true;
-    }
-  });
-
-  console.log("filteredRecipes", filteredRecipes);
+  const filteredRecipes = recipes.filter((recipe) =>
+    recipe.title.includes(dropdownValue)
+  );
+  console.log(filteredRecipes);
   createRecipeData(filteredRecipes);
 }
 
-//LIGHTSNACKS
+//STEP BY STEP DROPDOWN
 
-function lightsnacksSearch(recipes) {
-  const filteredRecipes = recipes.filter((recipe) => {
-    if (
-      recipe.title.includes("Salad") ||
-      recipe.title.includes("Panini") ||
-      recipe.title.includes("Heart") ||
-      recipe.title.includes("DIPS") ||
-      recipe.title.includes("Split")
-    ) {
-      return true;
-    }
-  });
+// //NO FILTERING
+// function noFilterFunction(recipes) {
+//   createRecipeData(recipes);
+// }
 
-  console.log("filteredRecipes", filteredRecipes);
-  createRecipeData(filteredRecipes);
-}
+// //BEVERAGES
+// function beveragesSearch(recipes) {
+//   const filteredRecipes = recipes.filter((recipe) => {
+//     if (
+//       recipe.title.includes("Smoothie") ||
+//       recipe.title.includes("Cocktail") ||
+//       recipe.title.includes("Refresher") ||
+//       recipe.title.includes("Shake") ||
+//       recipe.title.includes("Lassi")
+//     ) {
+//       return true;
+//     }
+//   });
 
-//CAKES&BAKES
+//   console.log("filteredRecipes", filteredRecipes);
+//   createRecipeData(filteredRecipes);
+// }
 
-function cakesandbakesSearch(recipes) {
-  const filteredRecipes = recipes.filter((recipe) => {
-    if (
-      recipe.title.includes("Cake") ||
-      recipe.title.includes("Crostata") ||
-      recipe.title.includes("Slices")
-    ) {
-      return true;
-    }
-  });
+// //LIGHTSNACKS
+// function lightsnacksSearch(recipes) {
+//   const filteredRecipes = recipes.filter((recipe) => {
+//     if (
+//       recipe.title.includes("Salad") ||
+//       recipe.title.includes("Panini") ||
+//       recipe.title.includes("Heart") ||
+//       recipe.title.includes("DIPS") ||
+//       recipe.title.includes("Split")
+//     ) {
+//       return true;
+//     }
+//   });
 
-  console.log("filteredRecipes", filteredRecipes);
-  createRecipeData(filteredRecipes);
-}
+//   console.log("filteredRecipes", filteredRecipes);
+//   createRecipeData(filteredRecipes);
+// }
 
-//FROZEN DESSERTS
+// //CAKES&BAKES
+// function cakesandbakesSearch(recipes) {
+//   const filteredRecipes = recipes.filter((recipe) => {
+//     if (
+//       recipe.title.includes("Cake") ||
+//       recipe.title.includes("Crostata") ||
+//       recipe.title.includes("Slices")
+//     ) {
+//       return true;
+//     }
+//   });
 
-function frozendessertsSearch(recipes) {
-  const filteredRecipes = recipes.filter((recipe) => {
-    if (
-      recipe.title.includes("Ice") ||
-      recipe.title.includes("Sorbet") ||
-      recipe.title.includes("Popsicle")
-    ) {
-      return true;
-    }
-  });
+//   console.log("filteredRecipes", filteredRecipes);
+//   createRecipeData(filteredRecipes);
+// }
 
-  console.log("filteredRecipes", filteredRecipes);
-  createRecipeData(filteredRecipes);
-}
+// //FROZEN DESSERTS
+// function frozendessertsSearch(recipes) {
+//   const filteredRecipes = recipes.filter((recipe) => {
+//     if (
+//       recipe.title.includes("Ice") ||
+//       recipe.title.includes("Sorbet") ||
+//       recipe.title.includes("Popsicle")
+//     ) {
+//       return true;
+//     }
+//   });
 
-//MOUSSE PARFAIT
+//   console.log("filteredRecipes", filteredRecipes);
+//   createRecipeData(filteredRecipes);
+// }
 
-function mousseparfaitSearch(recipes) {
-  const filteredRecipes = recipes.filter((recipe) => {
-    if (recipe.title.includes("Mousse") || recipe.title.includes("Parfait")) {
-      return true;
-    }
-  });
+// //MOUSSE PARFAIT
+// function mousseparfaitSearch(recipes) {
+//   const filteredRecipes = recipes.filter((recipe) => {
+//     if (recipe.title.includes("Mousse") || recipe.title.includes("Parfait")) {
+//       return true;
+//     }
+//   });
 
-  console.log("filteredRecipes", filteredRecipes);
-  createRecipeData(filteredRecipes);
-}
+//   console.log("filteredRecipes", filteredRecipes);
+//   createRecipeData(filteredRecipes);
+// }
 
-//JAMS DIPS
-
-function jamesdipsSearch(recipes) {
-  const filteredRecipes = recipes.filter((recipe) => {
-    if (recipe.title.includes("Jam") || recipe.title.includes("Dip")) {
-      return true;
-    }
-  });
-
-  console.log("filteredRecipes", filteredRecipes);
-  createRecipeData(filteredRecipes);
-}
+// //JAMS DIPS
+// function jamesdipsSearch(recipes) {
+//   const filteredRecipes = recipes.filter((recipe) => {
+//     if (recipe.title.includes("Jam") || recipe.title.includes("Dip")) {
+//       return true;
+//     }
+//   });
+//   console.log("filteredRecipes", filteredRecipes);
+//   createRecipeData(filteredRecipes);
+// }
 
 // //COMBINING FILTERS
 
-// const combineFilters = (recipes) => {
+function combineFilters(recipes) {
+  const checkboxes = Array.from(
+    document.querySelectorAll("input[type='checkbox']:checked")
+  ).map((checked) => checked.value);
+
+  const dropdownValue = document.querySelector("#recipeType").value;
+  const filteredRecipes = recipes.filter((recipe) => {
+    let intersection = recipe.usedIngredients.filter((ingr) =>
+      checkboxes.includes(ingr.name)
+    );
+    return (
+      recipe.title.includes(dropdownValue) &&
+      intersection.length === checkboxes.length
+    );
+  });
+  console.log("combined filtered recipes", filteredRecipes);
+  createRecipeData(filteredRecipes);
+}
+// function combineFilters(recipes) {
 //   const checkboxes = Array.from(
-//     document.querySelectorAll("input[type='checkbox']")
-//   );
-//   const intersection = recipes.usedIngredients;
+//     document.querySelectorAll("input[type='checkbox']:checked")
+//   ).map((checked) => checked.value);
+//   console.log("combine filters check boxes", checkboxes);
 //   const jamesdips = document.getElementById("jamesdips");
 //   const mousseparfait = document.getElementById("mousseparfait");
 //   const frozendesserts = document.getElementById("frozendesserts");
@@ -312,53 +333,51 @@ function jamesdipsSearch(recipes) {
 //   const noFilter = document.getElementById("noFilter");
 
 //   const filteredRecipes = recipes.filter((recipe) => {
+//     let intersection = recipe.usedIngredients.filter((ingr) =>
+//       checkboxes.includes(ingr.name)
+//     );
+
+// WHY CANNOT I USE FUNCTIONS TO COMBINE FUNCTIONS (HELPER FUNCTIONS)?
+// return (
+//   (jamesdipsSearch(recipe) && filterByIngredient(recipe)) ||
+//   (cakesandbakesSearch(recipe) && filterByIngredient(recipe)) ||
+//   (noFilterFunction(recipe) && filterByIngredient(recipe)) ||
+//   (mousseparfaitSearch(recipe) && filterByIngredient(recipe)) ||
+//   (beveragesSearch(recipe) && filterByIngredient(recipe)) ||
+//   (frozendessertsSearch(recipe) && filterByIngredient(recipe)) ||
+//   (lightsnacksSearch(recipe) && filterByIngredient(recipe))
+// );
+//     // COMBINING FILTERS WITH MULTIPLE FUNCTIONS
 //     return (
-//       (jamesdips ||
-//         mousseparfait ||
-//         frozendesserts ||
-//         cakesandbakes ||
-//         lightsnacks ||
-//         beverages ||
-//         noFilter) &&
-//       intersection.length == checkboxes.length
+//       ((frozendesserts ===
+//         (recipe.title.includes("Ice") ||
+//           recipe.title.includes("Sorbet") ||
+//           recipe.title.includes("Popsicle"))) ||
+//       (jamesdips ===
+//         (recipe.title.includes("Jam") || recipe.title.includes("Dip"))) ||
+//       (mousseparfait ===
+//         (recipe.title.includes("Mousse") || recipe.title.includes("Parfait"))) ||
+//       (cakesandbakes ===
+//         (recipe.title.includes("Cake") ||
+//           recipe.title.includes("Crostata") ||
+//           recipe.title.includes("Slices"))) ||
+//       (lightsnacks ===
+//         (recipe.title.includes("Salad") ||
+//           recipe.title.includes("Panini") ||
+//           recipe.title.includes("Heart") ||
+//           recipe.title.includes("DIPS") ||
+//           recipe.title.includes("Split"))) ||
+//       (beverages ===
+//         (recipe.title.includes("Smoothie") ||
+//           recipe.title.includes("Cocktail") ||
+//           recipe.title.includes("Refresher") ||
+//           recipe.title.includes("Shake") ||
+//           recipe.title.includes("Lassi"))) ||
+//         (noFilter === createRecipeData(recipes)))
+//         &&
+//         (intersection.length === checkboxes.length)
 //     );
 //   });
 //   console.log("filteredRecipes", filteredRecipes);
 //   createRecipeData(filteredRecipes);
-// };
-
-//SORT BY MOST FUNCTION
-// const mostPopular = document.getElementById("mostPopular");
-
-// function sortbyMost() {
-//   const filteredRecipes = recipes.filter((mostPopular) => {
-//     if (mostPopular.likes >= 30) {
-//       return true;
-//     } else {
-//       return false;
-//     }
-//   });
-
-//   console.log("filteredRecipes", filteredRecipes);
-//   createRecipeData(filteredRecipes);
 // }
-
-// mostPopular.addEventListener("click", sortbyMost);
-
-// //SORT BY LEAST FUNCTION
-// const leastPopular = document.getElementById("leastPopular");
-
-// function sortbyLeast() {
-//   const filteredRecipes = recipes.filter((leastPopular) => {
-//     if (leastPopular.likes < 30) {
-//       return true;
-//     } else {
-//       return false;
-//     }
-//   });
-
-//   console.log("filteredRecipes", filteredRecipes);
-//   createRecipeData(filteredRecipes);
-// }
-
-// leastPopular.addEventListener("click", sortbyLeast);

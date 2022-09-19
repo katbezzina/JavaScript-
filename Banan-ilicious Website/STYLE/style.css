@@ -23,14 +23,22 @@ body {
 .navigationitems{
     display: flex;
     flex-direction: row;
-    gap: 30px;
+    gap: 55px;
 }
 
-.logodiv{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.activeNav{
+    font-weight: 800;
+}
+
+.navItem{
+    color: rgb(5, 79, 227);
+}
+
+.navItem:hover{
+    background-color: rgb(5, 79, 227);
+    color: rgba(255, 255, 255, 0.837);
+    border-radius: 10px;
+    font-weight: 800;
 }
 
 .logotitle{
@@ -46,7 +54,7 @@ body {
 }
 
 .frontImage {
-    width: 37.5vw;
+    width: 38.5vw;
     height: auto;
 }
 
@@ -134,8 +142,74 @@ body {
 }
 
 .cardcolor{
-    background-color: rgba(4, 149, 50, 0.618);
+    background-color: rgba(3, 123, 41, 0.618);
     color: rgba(248, 248, 248, 0.899);
     width: 23vw;
 }
 
+/* MOBILE */
+
+@media only screen and (max-width: 600px) {
+
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    /* NAVIGATION */
+
+    .logotitle {
+        display: none;
+    }
+    
+    .navigationitems{
+        gap: 0px;
+    }
+
+    /* HOME SECTION */
+
+    .homeSection {
+        display: flex;
+        flex-direction: column;
+        height: 72%;
+    }
+
+    .frontImage {
+        display: none;
+    }
+
+    .leftContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        margin-top: 50px;
+        gap: 50px;
+        margin-right: 0%;
+        margin-left: 0%;
+    }
+
+    /* CARD TABLE + FILTERS */
+
+    .cardcolor {
+        width: 100vw;
+    }
+
+    .fruitTableandFilters {
+        margin-left: 0;
+    }
+
+    .checkboxFilter label {
+        margin: 5px 8px 0px 2px;
+        font-size: medium;
+    }
+
+    .filterSection {
+        flex-direction: column;
+        gap: 30px;
+        align-items: flex-end;
+    }
+
+
+}
