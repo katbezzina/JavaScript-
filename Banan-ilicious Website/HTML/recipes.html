@@ -7,16 +7,15 @@
     <script src="https://kit.fontawesome.com/3b14ec5cd6.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="../STYLE/style.css">
-    <title>Fruitylicious Recipes</title>
+    <title>FruityliciousRecipes</title>
 </head>
 <body>
 
     <!-- NAVIGATION -->
-
     <nav class="navbar bg-light">
         <image src="../logo.png" class="logo"></image>
         <ul class="nav navigationitems">
-            <li class="nav-item"><a class="navItem nav-link" href="../HTML/index.html">Home</a></li>
+            <li class="nav-item"><a class="navItem nav-link" href="../HTML/home.html">Home</a></li>
             <li class="nav-item"><a class="navItem nav-link activeNav" aria-current="page" href="#">Recipes Log</a></li>
         </ul>
         <h1 class="title logotitle"><span class="cursive green">Fruity</span>licious</h1>
@@ -29,27 +28,28 @@
     <!-- FILTER SECTION -->
     <div class="filterSection">
     <!-- CHECKBOXES smoothie cocktail lassi refresher shake salad panini cake crostata parfait mousse popsicle sorbet  pops ice-cream jam dip-->
-    <div class="checkboxFilter form-check">
-        <input type="checkbox" class="checkbox" id="apples" value="apples">
-        <label for="apples">  Apple</label>
-        <input type="checkbox" class="checkbox" id="banana" value="banana">
-        <label for="banana"> Banana</label>
-        <input type="checkbox" class="checkbox" id="blueberries" value="blueberries">
-        <label for="blueberries"> Blueberry</label>
-        <input type="checkbox" class="checkbox" id="kiwi" value="kiwi">
-        <label for="kiwi"> Kiwi</label>
-        <input type="checkbox" class="checkbox" id="lemons" value="lemon">
-        <label for="lemons"> Lemon</label>
-        <input type="checkbox" class="checkbox" id="oranges" value="orange">
-        <label for="oranges"> Orange</label>
-        <input type="checkbox" class="checkbox" id="strawberries" value="strawberries">
-        <label for="strawberries"> Strawberry</label>
-    </div>
+        <div class="checkboxFilter form-check">
+            <input type="checkbox" class="checkbox" id="apples" value="apples">
+            <label for="apples">  Apple</label>
+            <input type="checkbox" class="checkbox" id="banana" value="banana">
+            <label for="banana"> Banana</label>
+            <input type="checkbox" class="checkbox" id="blueberries" value="blueberries">
+            <label for="blueberries"> Blueberry</label>
+            <input type="checkbox" class="checkbox" id="kiwi" value="kiwi">
+            <label for="kiwi"> Kiwi</label>
+            <input type="checkbox" class="checkbox" id="lemons" value="lemon">
+            <label for="lemons"> Lemon</label>
+            <input type="checkbox" class="checkbox" id="oranges" value="orange">
+            <label for="oranges"> Orange</label>
+            <input type="checkbox" class="checkbox" id="strawberries" value="strawberries">
+            <label for="strawberries"> Strawberry</label>
+        </div>
     
     <!-- DROPDOWN -->
         <div class="dropdown">
             <label class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" for="recipeType">
-                Recipe type</label>
+                Recipe type
+            </label>
             <select class="dropdown-menu" name="recipeType" id="recipeType">
                 <option value="">All Recipes</option>
                 <option value="Baked">Bake</option>
@@ -72,25 +72,26 @@
 
     <!-- TABLE -->
     <table id="fruityTable">
-            <tr>
+        <tr>
+        </tr>
+
+        <tbody id="tbody" class="card-body row row-cols-1 row-cols-md-4 g-2">
+            <!-- <tr>
+                <td>data 1</td>
+                <td>data 1</td>
             </tr>
-
-
-            <tbody id="tbody" class="card-body row row-cols-1 row-cols-md-4 g-2">
-                <!-- <tr>
-                    <td>1</td>
-                    <td>fact</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>fact 2</td>
-                </tr> -->
-            </tbody>
+            <tr>
+                <td>data n</td>
+                <td>data n</td>
+            </tr> -->
+        </tbody>
     </table>
     </div>
 
+    <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <script src="../JS/main.js"></script>
+
 </body>
 </html>
