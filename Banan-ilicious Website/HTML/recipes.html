@@ -15,7 +15,7 @@
     <nav class="navbar bg-light">
         <image src="../logo.png" class="logo"></image>
         <ul class="nav navigationitems">
-            <li class="nav-item"><a class="navItem nav-link" href="../HTML/home.html">Home</a></li>
+            <li class="nav-item"><a class="navItem nav-link" href="../HTML/index.html">Home</a></li>
             <li class="nav-item"><a class="navItem nav-link activeNav" aria-current="page" href="#">Recipes Log</a></li>
         </ul>
         <h1 class="title logotitle"><span class="cursive green">Fruity</span>licious</h1>
@@ -52,20 +52,31 @@
             </label>
             <select class="dropdown-menu" name="recipeType" id="recipeType">
                 <option value="">All Recipes</option>
-                <option value="Baked">Bake</option>
-                <option value="Cake">Cake</option>
-                <option value="Cocktail">Cocktail</option>
-                <option value="Dip">Dip</option>
-                <option value="Ice">Ice-cream</option>
-                <option value="Jam">Jam</option>
-                <option value="Lassi">Lassi</option>
-                <option value="Mousse">Mousse</option>
-                <option value="Parfait">Parfait</option>
-                <option value="Pop">Popsicle</option>
-                <option value="Refresher">Refresher</option>
-                <option value="Salad">Salad</option>
-                <option value="Smoothie">Smoothie</option>
-                <option value="Sorbet">Sorbet</option>
+                <optgroup label="Beverages">
+                    <option value="Cocktail">Cocktail</option>
+                    <option value="Lassi">Lassi</option>
+                    <option value="Refresher">Refresher</option>
+                    <option value="Smoothie">Smoothie</option>
+                </optgroup>
+                <optgroup label="Cakes & Bakes">
+                    <option value="Baked">Bake</option>
+                    <option value="Cake">Cake</option>
+                    <option value="Crostata">Crostata</option>
+                </optgroup>
+                <optgroup label="Frozen Desserts">
+                    <option value="Ice">Ice-cream</option>
+                    <option value="Pop">Popsicle</option>
+                    <option value="Sorbet">Sorbet</option>
+                </optgroup>
+                <optgroup label="Jams & Dips">
+                    <option value="Dip">Dip</option>
+                    <option value="Jam">Jam</option>
+                </optgroup>
+                <optgroup label="No Bake Snacks">
+                    <option value="Mousse">Mousse</option>
+                    <option value="Parfait">Parfait</option>
+                    <option value="Salad">Salad</option>
+                </optgroup>
             </select>
         </div>
     </div>

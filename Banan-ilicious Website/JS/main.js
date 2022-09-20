@@ -3,9 +3,7 @@
 let recipes;
 
 const getDataAsync = async () => {
-  const response = await fetch(
-    "https://api.spoonacular.com/recipes/findByIngredients?apiKey=43a2171f92be4f80b6cdd64564a0b167&ingredients=apples,strawberry,banana,blueberries,kiwi,oranges,grapefruit,lemon&number=40&ranking=2"
-  );
+  const response = await fetch("../JS/recipes.json");
   const data = await response.json();
   // createRecipeData(data);
   return data;
@@ -162,8 +160,8 @@ function combineFilters(recipes) {
   const checkboxes = Array.from(
     document.querySelectorAll("input[type='checkbox']:checked")
   ).map((checked) => checked.value);
-
   const dropdownValue = document.querySelector("#recipeType").value;
+
   const filteredRecipes = recipes.filter((recipe) => {
     let intersection = recipe.usedIngredients.filter((ingr) =>
       checkboxes.includes(ingr.name)
